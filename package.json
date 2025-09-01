@@ -1,0 +1,24 @@
+{
+  "name": "send-text",
+  "version": "1.0.0",
+  "description": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "bash ./utils/script.sh && node server.js",
+    "dev": "bash ./utils/script.sh && nodemon server.js --watch",
+    "update": "bash publish/update.sh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.1",
+    "express": "^4.19.2",
+    "nodemon": "^3.1.4",
+    "pg": "^8.16.3"
+  }
+}

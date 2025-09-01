@@ -1,0 +1,14 @@
+{
+  "manifest_version": 3,
+  "name": "WhatsApp - Finalizar Chamados",
+  "version": "1.0",
+  "description": "Extensão para finalizar chamados direto no WhatsApp Web",
+  "permissions": ["scripting", "storage", "activeTab"],
+  "host_permissions": ["http://localhost:9000/*", "https://seuservidor.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://web.whatsapp.com/*"],
+      "js": ["content.js"]
+    }
+  ]
+}
