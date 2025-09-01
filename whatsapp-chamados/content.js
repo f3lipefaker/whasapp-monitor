@@ -107,5 +107,3 @@ async function verificarChamado(numeroId) {
     return null;
   }
 }
-
-

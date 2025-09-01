@@ -78,36 +78,6 @@ app.post('/api/chamados', async (req, res) => {
   }
 });
 
-// Abrir novo chamado se não houver aberto
-app.post('/api/chamados/mensagem-nova', async (req, res) => {
-  try {
-    const { numero } = req.body;
-    
-    // Verifica último chamado
-    const result = await pool.query(
-      'SELECT * FROM chamados WHERE numero = $1 ORDER BY atualizado_em DESC LIMIT 1',
-      [numero]
-    );
-
-    const ultimo = result.rows[0];
-    
-    if (!ultimo || ultimo.status === 'finalizado') {
-      // Cria novo chamado
-      const novo = await pool.query(
-        'INSERT INTO chamados (numero, status, criado_em, atualizado_em) VALUES ($1, $2, NOW(), NOW()) RETURNING *',
-        [numero, 'aberto']
-      );
-      return res.json(novo.rows[0]);
-    }
-
-    // Se já tiver aberto, retorna ele
-    res.json(ultimo);
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
-
 
 // Inicia o servidor
 app.listen(PORT, () => {
