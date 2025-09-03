@@ -69,14 +69,14 @@ async function finalizarChamado() {
 }
 
 // 🔹 Cria botão fixo na tela
-function criarBotaoFixo() {
+function criarBotao() {
   if (btn) return;
   btn = document.createElement("button");
   btn.id = "finalizar-fixo";
   btn.style.cssText = `
     position: fixed;
-    bottom: 20px;
-    right: 20px;
+    top: 14px;
+    right: 180px;
     z-index: 9999;
     padding: 10px 20px;
     border: none;
@@ -229,7 +229,7 @@ const debouncedAbrirChamado = debounce(abrirChamado, 500);
 
 // 🔹 Inicialização
 function start() {
-  criarBotaoFixo();
+  criarBotao();
   setInterval(syncConversaAtual, 1000);
   bindMessagesObserver();
 }
